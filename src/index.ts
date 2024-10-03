@@ -9,12 +9,11 @@ import {onSchedule} from "firebase-functions/v2/scheduler";
 // // Get the base URL from Remote Config
 // const baseURL = config.getString('host_name');
 
-// // Define the cron URLs using the base URL
-// const cron1URL = `${baseURL}/cron/every6hours`;
-// const cron2URL = `${baseURL}/cron/every12hours`;
+const baseURL = 'https://backend-service-b448439-820564601421.us-central1.run.app/';
 
-const cron1URL = "https://backend-service-b448439-820564601421.us-central1.run.app/cron/every6hours";
-const cron2URL = "https://backend-service-b448439-820564601421.us-central1.run.app/cron/every12hours";
+// Define the cron URLs using the base URL
+const cron1URL = `${baseURL}/cron/every6hours`;
+const cron2URL = `${baseURL}/cron/every12hours`;
 
 export const hit6PMCron  = onSchedule("every 6 hours", () => {
   axios.get(cron1URL)
